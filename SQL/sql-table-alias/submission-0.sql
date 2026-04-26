@@ -1,0 +1,37 @@
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    email TEXT
+);
+
+CREATE TABLE employment_records (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    company_name TEXT,
+    job_title TEXT
+);
+
+
+INSERT INTO users (id, name, email) VALUES
+(1, 'Alice', 'alice@gmail.com'),
+(2, 'Bob', 'bob@gmail.com'),
+(3, 'Charlie', 'charlie@gmail.com');
+
+INSERT INTO employment_records (id, user_id, company_name, job_title) VALUES
+(100, 1, 'Google', 'Software Engineer'),
+(300, 2, 'Microsoft', 'Data Scientist'),
+(500, 3, 'Amazon', 'Product Manager');
+-- Do not modify above this line. --
+Select 
+u.name as name,
+u.email as email,
+er.company_name as company_name,
+er.job_title as job_title
+From users u
+Inner join employment_records er
+on er.user_id = u.id
+order by er.company_name
+
+
+
+
