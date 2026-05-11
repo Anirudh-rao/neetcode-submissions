@@ -1,7 +1,7 @@
 class PasswordManager:
     def __init__(self, password:str):
         self.__password = password
-          
+        # Double underscore indicates Private  Variables
     
     # TODO: Implement the verify_password method
     def verify_password(self,input_password:str) -> bool:
